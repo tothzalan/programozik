@@ -59,7 +59,9 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        //
+        return view('projects.edit', [
+            'project' => $project,
+        ]);
     }
 
     /**
@@ -67,7 +69,15 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
-        //
+        $validated = $request->validate([
+            'name' => ['required', 'max:255'],
+            'description' => ['nullable'],
+            'link' => ['nullable'],
+        ]);
+
+        $project->update($validated);
+
+        return redirect('/projects');
     }
 
     /**
@@ -76,7 +86,6 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {
         $project->delete();
-
 
         // TODO: add with() method
         return redirect('/projects');

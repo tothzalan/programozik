@@ -23,6 +23,8 @@ Route::controller(ProjectController::class)->group(function () {
     Route::get('/projects', 'index')->name('projects.index');
     Route::get('/projects/create', 'create')->name('projects.create');
     Route::post('/projects/create', 'store');
+    Route::get('/projects/edit/{project}', 'edit')->name('projects.edit');
+    Route::put('/projects/edit/{project}', 'update')->name('projects.update');
     Route::delete('/projects/delete/{project}', 'destroy')->name('projects.destroy');
 });
 

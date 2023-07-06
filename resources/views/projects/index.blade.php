@@ -9,12 +9,12 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     @if(count($projects) > 0)
-                        <div class="flex justify-between">
                         @foreach($projects as $proj)
-                             <h3>{{$proj->name}}</h3>
-                             <div class="bg-yellow-300 rounded-full p-3">
+                        <div class="flex justify-between">
+                            <h3>{{$proj->name}}</h3>
+                             <a href="{{ route('projects.edit', $proj ) }}" class="bg-yellow-300 rounded-full p-3">
                                  EDIT
-                             </div>
+                             </a>
                             <form action="{{ route('projects.destroy', $proj) }}" method="post">
                                 @csrf
                                 @method('DELETE')
@@ -22,7 +22,10 @@
                                     DELETE
                                 </button>
                             </form>
+                        </div>
                         @endforeach
+                        <div>
+                            <a class="text-blue-400" href="/projects/create">Create a new project</a>
                         </div>
                     @else
                         You don't have any projects yet.
@@ -32,4 +35,5 @@
                 </div>
             </div>
         </div>
+    </div>
 </x-app-layout>
