@@ -3,11 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
+use App\Services\MarkdownConverter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class ProjectController extends Controller
 {
+    protected $markdownConverter;
+
+    public function __construct(MarkdownConverter $markdownConverter)
+    {
+        $this->markdownConverter = $markdownConverter;
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -51,6 +59,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
+        $project->description = $this->markdownConverter->convertToHtml($project->description);
         return view('projects.show', [
             'project' => $project,
         ]);

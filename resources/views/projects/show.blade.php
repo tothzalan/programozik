@@ -9,13 +9,15 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <b>Project name:</b> {{ $project->name }} <br>
-                    <b>Description:</b> {{ $project->description }} <br>
+                    <b>Description:</b> {!! $project->description !!} <br>
                     <b>Link:</b> <a href="{{ $project->link }}">{{ $project->link }}</a>
+                    @auth
                     <div>
                         <button>
                             <a href="/projects">Go back</a>
                         </button>
                     </div>
+                    @endauth
 
                     {{-- comment section --}}
                     <div class="mt-10">
