@@ -14,7 +14,7 @@
                 <div>
                     <h2>Projects:</h2>
                     @foreach($projects as $proj)
-                        <a href="" class="text-blue-600">{{ $proj->name }}</a>
+                        <a href="{{ route('projects.show', $proj->id) }}" class="text-blue-600">{{ $proj->name }}</a>
                     @endforeach
                 </div>
             </div>

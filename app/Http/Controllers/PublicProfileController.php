@@ -10,7 +10,8 @@ class PublicProfileController extends Controller
 {
     public function index(string $name) {
         $user = User::where('name', $name)->first();
-        // TODO: return something nice if the user does not exists
+        if(!$user)
+            return abort(404, 'User not found!');
         $projects = $user->projects;
         return view('profile.index', [
             'user' => $user,
