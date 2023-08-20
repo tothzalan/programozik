@@ -10,13 +10,14 @@
                 <div class="p-6 text-gray-900">
                     <b>Project name:</b> {{ $project->name }} <br>
                     <b>Description:</b> {!! $project->description !!} <br>
-                    <b>Link:</b> <a href="{{ $project->link }}">{{ $project->link }}</a>
+                    <b>Link:</b> <a
+                        href="{{ str_contains($project->link, '//') ? $project->link : '//' . $project->link }}">{{ $project->link }}</a>
                     @auth
-                    <div>
-                        <button>
-                            <a href="/projects">Go back</a>
-                        </button>
-                    </div>
+                        <div>
+                            <button>
+                                <a href="/projects">Go back</a>
+                            </button>
+                        </div>
                     @endauth
 
                     {{-- comment section --}}
