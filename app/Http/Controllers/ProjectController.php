@@ -101,4 +101,26 @@ class ProjectController extends Controller
         // TODO: add with() method
         return redirect('/projects');
     }
+
+    public function addMember(Project $project, Request $request)
+    {
+        $validated = $request->validate([
+            'user_id' => ['required', 'exists:users,id'],
+        ]);
+
+        $project->members()->attach($validated['user_id']);
+
+        return redirect()->back();
+    }
+
+    public function removeMember(Project $project, Request $request)
+    {
+        $validated = $request->validate([
+            'user_id' => ['required', 'exists:users,id'],
+        ]);
+
+        $project->members()->detach($validated['user_id']);
+
+        return redirect()->back();
+    }
 }

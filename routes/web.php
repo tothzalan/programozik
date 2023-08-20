@@ -31,6 +31,8 @@ Route::controller(ProjectController::class)->group(function () {
     Route::get('/projects/{project}', 'show')->name('projects.show');
     Route::put('/projects/edit/{project}', 'update')->name('projects.update');
     Route::delete('/projects/delete/{project}', 'destroy')->name('projects.destroy');
+    Route::post('/projects/{project}/members', 'addMember')->name('projects.members.add');
+    Route::delete('/projects/{project}/members/{member}', 'removeMember')->name('projects.members.remove');
 });
 
 Route::get('/dashboard', function () {
