@@ -35,9 +35,9 @@ Route::controller(ProjectController::class)->group(function () {
     Route::delete('/projects/{project}/members/{member}', 'removeMember')->name('projects.members.remove');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', 
+    [ProjectBrowserController::class, 'dashboard']
+    )->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
