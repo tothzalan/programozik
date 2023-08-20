@@ -19,22 +19,26 @@
                             </button>
                         </div>
                     @endauth
+                    <br>
+                    <hr>
 
                     {{-- comment section --}}
-                    <div class="mt-10">
-                        <h3 class="text-lg font-semibold">Comments</h3>
-                        <form action="/projects/{{ $project->id }}/comments" method="POST">
-                            @csrf
-                            <div class="mt-4">
-                                <textarea name="body" class="w-full border-gray-300 rounded-md" rows="4" placeholder="Add a comment..."></textarea>
-                            </div>
-                            <div class="flex justify-end mt-4">
-                                <button type="submit"
-                                    class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Post</button>
-                            </div>
-                        </form>
-                    </div>
+                    <br>
+                    <h3>Add comment</h3>
+                    <form method="post" action="{{ route('comments.store') }}">
+                        @csrf
+                        <div class="form-group">
+                            <textarea class="form-control" name="body"></textarea>
+                            <input type="hidden" name="project_id" value="{{ $project->id }}">
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-success" value="Add Comment" />
+                        </div>
+                    </form>
                     {{-- TODO: show comments --}}
+                    @foreach ($project->comments as $comment)
+                        <div>{{ $comment->body }} {{$comment->user_id}}</div>
+                    @endforeach
                 </div>
             </div>
         </div>

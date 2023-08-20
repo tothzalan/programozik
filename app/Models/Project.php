@@ -10,10 +10,16 @@ class Project extends Model
 {
     use HasFactory;
 
+
     protected $fillable = ['name', 'description', 'link'];
 
     public function members(): HasMany
     {
         return $this->hasMany(Member::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 }

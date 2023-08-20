@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectBrowserController;
 use App\Http\Controllers\ProjectController;
@@ -21,6 +22,10 @@ Route::get('/', [ProjectBrowserController::class, 'index']);
 
 Route::controller(PublicProfileController::class)->group(function () {
    Route::get('users/{name}', 'index');
+});
+
+Route::controller(CommentController::class)->group(function () {
+    Route::post('/comments', 'store')->name('comments.store');
 });
 
 Route::controller(ProjectController::class)->group(function () {
