@@ -1,5 +1,5 @@
 <div>
-    <label for="name">Name</label>
+    <label for="name" class="font-bold text-xl mr-4">Name</label>
     @isset($value)
         <input type="text" id="name" name="name" required maxlength="255" placeholder="Name of the project"
                value="{{ $value }}">

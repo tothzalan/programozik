@@ -11,19 +11,18 @@
                     <form action="{{ route('projects.update', $project) }}" method="post">
                         @csrf
                         @method('PUT')
-                        @include('projects.partials.form_name', [ 'value' => $project->name ])
+                        @include('projects.partials.form_name', ['value' => $project->name])
 
-                        @include('projects.partials.form_description', [ 'value' => $project->description ])
+                        @include('projects.partials.form_description', ['value' => $project->description])
 
-                        @include('projects.partials.form_link', [ 'value' => $project->link ])
+                        @include('projects.partials.form_link', ['value' => $project->link])
 
                         <div>
-                            <button
-                                type="submit">
+                            <button type="submit" class="bg-green-400 rounded-full p-3 m-4 mb-0">
                                 Save project
                             </button>
                             <button>
-                                <a href="/projects">Go back</a>
+                                <a href="/projects" class="bg-yellow-300 rounded-full p-3 mb-0">Go back</a>
                             </button>
                         </div>
                     </form>
