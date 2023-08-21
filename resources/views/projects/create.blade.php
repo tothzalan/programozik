@@ -10,17 +10,18 @@
                 <div class="p-6 text-gray-900">
                     <form action="/projects/create" method="post">
                         @csrf
-                        @include('projects.partials.form_name')
+                        <div class="grid gap-6 grid-cols-5 grid-rows-3">
+                            @include('projects.partials.form_name')
 
-                        @include('projects.partials.form_description')
+                            @include('projects.partials.form_description')
 
-                        @include('projects.partials.form_link')
+                            @include('projects.partials.form_link')
+                        </div>
                         <div>
-                            <button
-                                type="submit" value="Create project">
+                            <button type="submit" value="Create project" class="bg-green-400 rounded-full p-3 m-4 mb-0">
                                 Create project
                             </button>
-                            <button>
+                            <button class="bg-yellow-300 rounded-full p-3 mb-0">
                                 <a href="/projects">Go back</a>
                             </button>
                         </div>

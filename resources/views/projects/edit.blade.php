@@ -7,15 +7,19 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
+                <div class="p-6 text-gray-900 ">
                     <form action="{{ route('projects.update', $project) }}" method="post">
                         @csrf
                         @method('PUT')
-                        @include('projects.partials.form_name', ['value' => $project->name])
+                        <div class="grid gap-6 grid-cols-5 grid-rows-3">
+                            @include('projects.partials.form_name', ['value' => $project->name])
 
-                        @include('projects.partials.form_description', ['value' => $project->description])
+                            @include('projects.partials.form_description', [
+                                'value' => $project->description,
+                            ])
 
-                        @include('projects.partials.form_link', ['value' => $project->link])
+                            @include('projects.partials.form_link', ['value' => $project->link])
+                        </div>
 
                         <div>
                             <button type="submit" class="bg-green-400 rounded-full p-3 m-4 mb-0">
