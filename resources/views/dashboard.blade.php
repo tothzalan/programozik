@@ -16,7 +16,7 @@
                                     <p class="font-bold text-xl ml-4 mt-4"><a href="{{ route('projects.show', $project->id) }}">{{ $project->name }}</a></p>
                                 </li>
                                 <p class="mb-4 ml-12 mt-1">
-                                    by <a href="{{ route('user.show', $project->owner->name)}}">{{ $project->owner->name }}</a>
+                                    by <a href="{{ route('user.show', $project->owner->name)}}" class="text-blue-500">{{ $project->owner->name }}</a>
                                 </p>
                             </div>
                         @endforeach
