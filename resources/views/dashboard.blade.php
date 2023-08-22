@@ -9,13 +9,20 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div>
                 <ul>
-                @if(count($projects) > 0)
-                @foreach ($projects as $project)
-                    <li><p><a href="{{ route('projects.show', $project->id) }}">{{$project->name}}</a></p></li>
-                @endforeach
-                @else
-                    <p>There are currently no project which are not yours!</p>
-                @endif
+                    @if (count($projects) > 0)
+                        @foreach ($projects as $project)
+                            <div class="border bg-white mb-4">
+                                <li>
+                                    <p class="font-bold text-xl ml-4 mt-4"><a href="{{ route('projects.show', $project->id) }}">{{ $project->name }}</a></p>
+                                </li>
+                                {{-- TODO: add username instead id --}}
+                                {{-- TODO: add link to userpage --}}
+                                <p class="mb-4 ml-12 mt-1">by {{ $project->user_id }}</p>
+                            </div>
+                        @endforeach
+                    @else
+                        <p>There are currently no project which are not yours!</p>
+                    @endif
                 </ul>
             </div>
         </div>

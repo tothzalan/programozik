@@ -14,8 +14,8 @@
                         href="{{ str_contains($project->link, '//') ? $project->link : '//' . $project->link }}">{{ $project->link }}</a>
                     @auth
                         <div>
-                            <button>
-                                <a href="/projects">Go back</a>
+                            <button class="mt-6">
+                                <a class="bg-yellow-300 rounded-full p-3" href="/projects">Go back</a>
                             </button>
                         </div>
                     @endauth
@@ -38,7 +38,7 @@
                         </div><br>
                         <hr>
                     </form>
-                    {{-- TODO: show comments --}}
+                    {{-- TODO: show comments in the right order --}}
                     <h2 class="font-bold text-xl">Comments</h2><br>
                     @foreach ($project->comments as $comment)
                         <div class="border text-left p-2">

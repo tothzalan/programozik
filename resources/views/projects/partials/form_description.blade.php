@@ -7,6 +7,6 @@
     </div>
 @else
     <div class="col-span-4">
-        <textarea id="description" name="description" class="w-full h-32"></textarea>
+        <textarea id="description" name="description" class="w-full h-32" placeholder="What is this project about?"></textarea>
     </div>
 @endisset

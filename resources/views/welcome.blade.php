@@ -34,9 +34,9 @@
                     <h1 class="text-3xl font-bold pt-10">Browse projects</h1>
                 </div>
                 <div class="max-w-xl mx-auto">
-                    <ul>
+                    <ul class="mt-12 ">
                     @foreach ($projects as $project)
-                        <li><p><a href="{{ route('projects.show', $project->id) }}">{{$project->name}}</a></p></li>
+                        <li><p class="mt-4 text-center"><a class="text-xl" href="{{ route('projects.show', $project->id) }}">{{$project->name}}</a></p></li>
                     @endforeach
                     </ul>
                 </div>

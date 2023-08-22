@@ -10,25 +10,26 @@
                 <div class="p-6 text-gray-900">
                     @if (count($projects) > 0)
                         @foreach ($projects as $proj)
-                            <div class="flex justify-between">
+                            <div class="flex justify-between mb-2 mt-2">
                                 <h3>
                                     <a href="{{ route('projects.show', $proj) }}">
                                         {{ $proj->name }}
                                     </a>
                                 </h3>
                                 <div class="flex">
-                                <a href="{{ route('projects.edit', $proj) }}" class="bg-yellow-300 rounded-full p-3">
-                                    EDIT
-                                </a>
-                                <form action="{{ route('projects.destroy', $proj) }}" method="post">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="bg-red-500 rounded-full p-3">
-                                        DELETE
-                                    </button>
-                                </form>
+                                    <a href="{{ route('projects.edit', $proj) }}"
+                                        class="bg-yellow-300 rounded-full p-3 mr-3">
+                                        EDIT
+                                    </a>
+                                    <form action="{{ route('projects.destroy', $proj) }}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="bg-red-500 rounded-full p-3">
+                                            DELETE
+                                        </button>
+                                    </form>
                                 </div>
-                            </div>
+                            </div><hr>
                         @endforeach
                         <div>
                             <a class="text-blue-400" href="/projects/create">Create a new project</a>
