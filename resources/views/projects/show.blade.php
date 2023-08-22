@@ -45,7 +45,6 @@
                     @endauth
 
                     @if(count($project->comments) > 0)
-                        {{-- TODO: show comments in the right order --}}
                         @foreach ($project->comments as $comment)
                             <div class="border text-left p-2">
                                 <div class="font-bold">{{ $comment->user->name }}</div>
