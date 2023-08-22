@@ -18,8 +18,12 @@ class ProjectBrowserController extends Controller
     public function dashboard()
     {
         $user = Auth::user();
+        $projects = Project::where('user_id', '<>', $user->id)
+            ->with('owner')
+            ->get();
+
         return view('dashboard', [
-            'projects' => Project::where('user_id', '<>', $user->id)->get(),
+            'projects' => $projects,
         ]);
     }
 }

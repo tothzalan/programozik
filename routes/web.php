@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [ProjectBrowserController::class, 'index']);
 
 Route::controller(PublicProfileController::class)->group(function () {
-   Route::get('users/{name}', 'index');
+   Route::get('users/{name}', 'index')->name('user.show');
 });
 
 Route::controller(CommentController::class)->group(function () {

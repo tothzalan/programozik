@@ -15,9 +15,9 @@
                                 <li>
                                     <p class="font-bold text-xl ml-4 mt-4"><a href="{{ route('projects.show', $project->id) }}">{{ $project->name }}</a></p>
                                 </li>
-                                {{-- TODO: add username instead id --}}
-                                {{-- TODO: add link to userpage --}}
-                                <p class="mb-4 ml-12 mt-1">by {{ $project->user_id }}</p>
+                                <p class="mb-4 ml-12 mt-1">
+                                    by <a href="{{ route('user.show', $project->owner->name)}}">{{ $project->owner->name }}</a>
+                                </p>
                             </div>
                         @endforeach
                     @else
