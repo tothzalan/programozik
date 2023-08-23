@@ -9,12 +9,12 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
             <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
                 <div>
-                    Email: {{ $user->email }}
+                    <b>Email:</b> {{ $user->email }}
                 </div>
                 <div>
-                    <h2>Projects:</h2>
+                    <h2 class="text-xl font-bold my-4">Projects:</h2>
                     @foreach($projects as $proj)
-                        <a href="{{ route('projects.show', $proj->id) }}" class="text-blue-600">{{ $proj->name }}</a>
+                        <a href="{{ route('projects.show', $proj->id) }}" class="text-blue-600 ml-4">{{ $proj->name }}</a><br>
                     @endforeach
                 </div>
             </div>
