@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Member;
 use App\Models\Project;
 use App\Services\MarkdownConverter;
 use Illuminate\Http\Request;
@@ -60,6 +61,21 @@ class ProjectController extends Controller
     public function show(Project $project)
     {
         $project->description = $this->markdownConverter->convertToHtml($project->description);
+
+        if(Auth::check())
+        {
+            $isOwner = $project->owner == Auth::user();
+            $pending = Member::where('user_id', Auth::user()->id)->exists();
+            $member = Member::where('user_id', Auth::user()->id)->where('valid', true)->exists();
+            return view('projects.show', [
+                'project' => $project,
+                'owner' => $isOwner,
+                'pending' => !$isOwner &&  $pending,
+                'member' => $member,
+            ]);
+        }
+
+
         return view('projects.show', [
             'project' => $project,
         ]);

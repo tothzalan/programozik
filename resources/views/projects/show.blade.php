@@ -9,14 +9,43 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <b class="text-xl">Project name:</b> {{ $project->name }} <br>
+<<<<<<< Updated upstream
                     <b class="text-xl">Author:</b><a href="{{ route('user.show', $project->owner->name) }}" class="text-blue-600 ml-2">{{ $project->owner->name }}</a> <br>
+=======
+                    <b class="text-xl">Author:</b> <a href="{{ route('user.show', $project->owner->name )}}">{{ $project->owner->name }}</a> <br>
+>>>>>>> Stashed changes
                     <b class="text-xl">Description:</b> {!! $project->description !!} <br>
                     <b class="text-xl">Link:</b> <a
                         href="{{ str_contains($project->link, '//') ? $project->link : '//' . $project->link }}">{{ $project->link }}</a>
                     @auth
-                        {{-- TODO: join button --}}
                         <div class="grid grid-cols-12">
-                            <div class="col-span-10"></div>
+                            <div class="col-span-10">
+                                @if(isset($owner))
+                                    @if($owner)
+                                    <div class="mt-6">
+                                        <a class="bg-green-300 rounded-full p-3" href="{{ route('members.manage', $project->id) }}">Manage members</a>
+                                    </div>
+                                    @else
+                                        @if(!$pending)
+                                        <form method="POST" action="{{ route('projects.join', $project->id) }}">
+                                            @csrf
+                                            <button type="submit" class="mt-6">
+                                                <a class="bg-green-300 rounded-full p-3">Join project</a>
+                                            </button>
+                                        </form>
+                                        @endif
+                                    @endif
+                                @endif
+                                @if($member)
+                                    <div class="p-3">
+                                        <a class="bg-green-300 rounded-full p-2" href="{{ route('members.manage', $project->id)}}">View members</a>
+                                    </div>
+                                @else
+                                    <div class="p-3">
+                                        <button class="bg-green-300 rounded-full p-2 disabled opacity-50" disabled>Join pending</button>
+                                    </div>
+                                @endif
+                            </div>
                             <div class="pb-5 col-span-2">
                                 <button class="mt-6">
                                     <a class="bg-yellow-300 rounded-full p-3" href="/projects">Go back</a>

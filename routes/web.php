@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\MembersController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectBrowserController;
 use App\Http\Controllers\ProjectController;
@@ -40,6 +41,13 @@ Route::controller(ProjectController::class)->group(function () {
     Route::delete('/projects/{project}/members/{member}', 'removeMember')->name('projects.members.remove');
     Route::post('/projects/{project}/posts', 'addPost')->name('projects.posts.add');
     Route::delete('/projects/{project}/posts/{post}', 'removePost')->name('projects.posts.remove');
+});
+
+Route::controller(MembersController::class)->group(function () {
+    Route::post('/members/{project}/join/', 'join')->name('projects.join');
+    Route::get('/members/{project}/manage', 'manage')->name('members.manage');
+    Route::post('/members/{member}/accept', 'accept')->name('members.accept');
+    Route::post('/members/{member}/deny', 'deny')->name('members.deny');
 });
 
 Route::get('/dashboard',
