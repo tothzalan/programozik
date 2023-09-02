@@ -53,7 +53,7 @@
                         @if (count($project->comments) > 0)
                             @foreach ($project->comments as $comment)
                                 <div class="border text-left p-2">
-                                    <div class="font-bold">{{ $comment->user->name }}</div>
+                                    <a class="font-bold" href="{{ route('user.show', $comment->user->name)}}" class="text-blue-500">{{ $comment->user->name }}</a>
                                     <div>{{ $comment->body }}</div>
                                 </div>
                             @endforeach

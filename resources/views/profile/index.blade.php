@@ -17,6 +17,10 @@
                         <a href="{{ route('projects.show', $proj->id) }}" class="text-blue-600 ml-4">{{ $proj->name }}</a><br>
                     @endforeach
                 </div>
+                <div>
+                    <h2 class="text-xl font-bold my-4">Contributed:</h2>
+                    {{-- TODO: show joined projects --}}
+                </div>
             </div>
         </div>
     </div>
