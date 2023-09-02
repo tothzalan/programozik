@@ -9,7 +9,19 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
             <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
                 <div>
-                    <b>Email:</b> {{ $user->email }}
+                    <div>
+                        <b>Email</b> {{ $user->email }}
+                    </div>
+                    @if($user->discord != null)
+                    <div>
+                        <b>Discord</b> {{ $user->discord }}
+                    </div>
+                    @endif
+                    @if($user->github != null)
+                    <div>
+                        <b>GitHub</b> <a href="https://github.com/{{$user->github}}" class="text-blue-600   ">{{ $user->github }}</a>
+                    </div>
+                    @endif
                 </div>
                 <div>
                     <h2 class="text-xl font-bold my-4">Projects:</h2>
