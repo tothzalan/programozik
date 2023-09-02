@@ -16,8 +16,8 @@
                     @auth
                         {{-- TODO: join button --}}
                         <div class="grid grid-cols-12">
-                            <div class="col-span-11"></div>
-                            <div class="pb-5">
+                            <div class="col-span-10"></div>
+                            <div class="pb-5 col-span-2">
                                 <button class="mt-6">
                                     <a class="bg-yellow-300 rounded-full p-3" href="/projects">Go back</a>
                                 </button>
@@ -27,6 +27,18 @@
                     <hr>
 
                     </form>
+                    <h2 class="font-bold text-xl">Posts</h2>
+                    @if (count($project->posts) > 0)
+                        @foreach ($project->posts as $post)
+                            <div class="border text-left p-2">
+                                <div class="font-bold">{{ $post->title }}</div>
+                                <div>{{ $post->content }}</div>
+                            </div>
+                        @endforeach
+                    @else
+                        <h2 class="font-bold text-xl mb-6 mt-1">No posts yet</h2>
+                    @endif
+
                     <h2 class="font-bold text-xl">Comments</h2><br>
                     {{-- comment section --}}
                     {{-- TODO: add comment by pressing enter --}}

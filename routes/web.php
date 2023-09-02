@@ -38,9 +38,11 @@ Route::controller(ProjectController::class)->group(function () {
     Route::delete('/projects/delete/{project}', 'destroy')->name('projects.destroy');
     Route::post('/projects/{project}/members', 'addMember')->name('projects.members.add');
     Route::delete('/projects/{project}/members/{member}', 'removeMember')->name('projects.members.remove');
+    Route::post('/projects/{project}/posts', 'addPost')->name('projects.posts.add');
+    Route::delete('/projects/{project}/posts/{post}', 'removePost')->name('projects.posts.remove');
 });
 
-Route::get('/dashboard', 
+Route::get('/dashboard',
     [ProjectBrowserController::class, 'dashboard']
     )->middleware(['auth', 'verified'])->name('dashboard');
 

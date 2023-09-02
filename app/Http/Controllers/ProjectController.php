@@ -123,4 +123,28 @@ class ProjectController extends Controller
 
         return redirect()->back();
     }
+
+    public function addPost(Project $project, Request $request)
+    {
+        $validated = $request->validate([
+            'title' => ['required', 'max:255'],
+            'content' => ['required'],
+            'user_id' => ['required', 'exists:users,id'],
+        ]);
+
+        $project->posts()->create($validated);
+
+        return redirect()->back();
+    }
+
+    public function removePost(Project $project, Request $request)
+    {
+        $validated = $request->validate([
+            'post_id' => ['required', 'exists:posts,id'],
+        ]);
+
+        $project->posts()->find($validated['post_id'])->delete();
+
+        return redirect()->back();
+    }
 }

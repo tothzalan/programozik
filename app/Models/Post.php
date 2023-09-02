@@ -16,4 +16,9 @@ class Post extends Model
     {
         return $this->hasMany(Upvote::class);
     }
+
+    public function project()
+    {
+        return $this->belongsTo(Project::class);
+    }
 }
