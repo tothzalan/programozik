@@ -9,6 +9,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <b class="text-xl">Project name:</b> {{ $project->name }} <br>
+                    <b class="text-xl">Author:</b> {{ $project->owner->name }} <br>
                     <b class="text-xl">Description:</b> {!! $project->description !!} <br>
                     <b class="text-xl">Link:</b> <a
                         href="{{ str_contains($project->link, '//') ? $project->link : '//' . $project->link }}">{{ $project->link }}</a>
