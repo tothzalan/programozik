@@ -47,6 +47,18 @@
             @endif
         </div>
 
+        <div>
+            <x-input-label for="discord" :value="__('Discord')" />
+            <x-text-input id="discord" name="discord" type="discord" class="mt-1 block w-full" :value="old('discord', $user->discord)" required autocomplete="discord" />
+            <x-input-error class="mt-2" :messages="$errors->get('discord')" />
+        </div>
+        
+        <div>
+            <x-input-label for="github" :value="__('GitHub')" />
+            <x-text-input id="github" name="github" type="github" class="mt-1 block w-full" :value="old('giscord', $user->github)" required autocomplete="github" />
+            <x-input-error class="mt-2" :messages="$errors->get('github')" />
+        </div>
+
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>
 
