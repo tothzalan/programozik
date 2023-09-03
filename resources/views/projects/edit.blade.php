@@ -45,7 +45,7 @@
 
                         <div>
                             <input type="hidden" name="user_id" value="{{ $project->owner->id }}">
-                            <button type="submit" class="bg-green-400 rounded-full p-3 m-4 mb-0">
+                            <button type="submit" class="bg-green-400 rounded-full p-3 m-4">
                                 Add post
                             </button>
                         </div>

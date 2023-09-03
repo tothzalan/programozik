@@ -9,15 +9,15 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <div>
-                        Owner: {{ $owner->name }}
+                        <b class="text-xl mb-4">Owner:</b><a href="{{ route('user.show', $owner->name) }}" class="text-blue-600 ml-2">{{ $owner->name }}</a>
                     </div>
                     <div>
-                    Accepted users:
+                    <b class="text-xl">Accepted users:</b>
                     @foreach($members as $member)
                         <div class="grid grid-cols-5">
                             @if($member->valid)
-                            <div class="col-span-3">
-                                <p class="p-2">{{ $member->user->name }}</p>
+                            <div class="col-span-3 p-2">
+                                <a href="{{ route('user.show', $member->user->name) }}" class="m-2">{{ $member->user->name }}</a>
                             </div>
                                 @if(Auth::user() == $owner)
                                 <div class="col-span-2">
@@ -33,7 +33,7 @@
                     </div>
                     @if(Auth::user() == $owner)
                     <div>
-                    Pending users:
+                    <b class="text-xl">Pending users:</b>
                     @foreach($members as $member)
                         <div class="grid grid-cols-5">
                             @if(!$member->valid)
@@ -54,7 +54,7 @@
                             </div>
                             @endif
                         </div>
-                    @endforeach                 
+                    @endforeach            
                     </div>
                     @endif
                 </div>

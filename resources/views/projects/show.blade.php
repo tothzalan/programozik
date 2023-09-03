@@ -19,7 +19,7 @@
                                 @if(isset($owner))
                                     @if($owner)
                                     <div class="mt-6">
-                                        <a class="bg-green-300 rounded-full p-3" href="{{ route('members.manage', $project->id) }}">Manage members</a>
+                                        <a class="bg-green-300 rounded-full p-3 mb-4" href="{{ route('members.manage', $project->id) }}">Manage members</a>
                                     </div>
                                     @else
                                         @if(!$pending)
@@ -32,11 +32,11 @@
                                         @endif
                                     @endif
                                 @endif
-                                @if($member)
-                                    <div class="p-3">
-                                        <a class="bg-green-300 rounded-full p-2" href="{{ route('members.manage', $project->id)}}">View members</a>
+                                @if($member && !$owner)
+                                    <div class="p-3 mt-2 ml-0">
+                                        <a class="bg-green-300 rounded-full p-3" href="{{ route('members.manage', $project->id)}}">View members</a>
                                     </div>
-                                @else
+                                @elseif($pending)
                                     <div class="p-3">
                                         <button class="bg-green-300 rounded-full p-2 disabled opacity-50" disabled>Join pending</button>
                                     </div>
@@ -52,10 +52,10 @@
                     <hr>
 
                     </form>
-                    <h2 class="font-bold text-xl">Posts</h2>
+                    <h2 class="font-bold text-xl mt-2 mb-2">Posts</h2>
                     @if (count($project->posts) > 0)
                         @foreach ($project->posts as $post)
-                            <div class="border text-left p-2">
+                            <div class="border text-left p-2 mb-4">
                                 <div class="font-bold">{{ $post->title }}</div>
                                 <div>{{ $post->content }}</div>
                             </div>
