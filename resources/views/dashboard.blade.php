@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="dark:text-gray-100 font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Browse projects') }}
         </h2>
     </x-slot>
@@ -11,12 +11,12 @@
                 <ul>
                     @if (count($projects) > 0)
                         @foreach ($projects as $project)
-                            <div class="border bg-white mb-4">
+                            <div class="border bg-white mb-4 dark:bg-gray-600 dark:border-black">
                                 <li>
-                                    <p class="font-bold text-xl ml-4 mt-4"><a href="{{ route('projects.show', $project->id) }}">{{ $project->name }}</a></p>
+                                    <p class="font-bold text-xl ml-4 mt-4 dark:text-gray-100"><a href="{{ route('projects.show', $project->id) }}">{{ $project->name }}</a></p>
                                 </li>
-                                <p class="mb-4 ml-12 mt-1">
-                                    by <a href="{{ route('user.show', $project->owner->name)}}" class="text-blue-500">{{ $project->owner->name }}</a>
+                                <p class="mb-4 ml-12 mt-1 dark:text-gray-100">
+                                    by <a href="{{ route('user.show', $project->owner->name)}}" class="text-blue-500 dark:text-blue-300">{{ $project->owner->name }}</a>
                                 </p>
                             </div>
                         @endforeach
