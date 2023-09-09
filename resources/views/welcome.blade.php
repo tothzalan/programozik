@@ -31,12 +31,12 @@
             @endif
             <div>
                 <div class="flex justify-center">
-                    <h1 class="text-3xl font-bold pt-10">Browse projects</h1>
+                    <h1 class="text-3xl font-bold pt-10 dark:text-gray-100">Browse projects</h1>
                 </div>
                 <div class="max-w-xl mx-auto">
                     <ul class="mt-12 ">
                     @foreach ($projects as $project)
-                        <li><p class="mt-4 text-center"><a class="text-xl" href="{{ route('projects.show', $project->id) }}">{{$project->name}}</a></p></li>
+                        <li><p class="mt-4 text-center"><a class="text-xl dark:text-gray-100" href="{{ route('projects.show', $project->id) }}">{{$project->name}}</a></p></li>
                     @endforeach
                     </ul>
                 </div>

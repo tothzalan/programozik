@@ -21,7 +21,7 @@
                             </div>
                         @endforeach
                     @else
-                        <p>There are currently no project which are not yours!</p>
+                        <p class="dark:text-gray-100">There are currently no project which are not yours!</p>
                     @endif
                 </ul>
             </div>
