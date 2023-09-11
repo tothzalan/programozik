@@ -63,7 +63,7 @@
                             <div class="border text-left p-2 mb-4 dark:border-0">
                                 <div class="font-bold">{{ $post->title }}</div>
                                 <div>{{ $post->content }}</div><br />
-                                <div>{{ count($post->upvotes) }} upvote{{ count($post->upvotes) == 1 ? '' : 's' }}
+                                <div class="text-blue-700 dark:text-blue-300">{{ count($post->upvotes) }} upvote{{ count($post->upvotes) == 1 ? '' : 's' }}
                                 </div>
                                 {{-- create upvote button --}}
                                 @auth
@@ -122,7 +122,7 @@
 
                     @if (count($project->comments) > 0)
                         @foreach ($project->comments as $comment)
-                            <div class="border text-left p-2 ">
+                            <div class="border text-left p-2 dark:border-gray-700">
                                 <a class="font-bold" href="{{ route('user.show', $comment->user->name) }}"
                                     class="text-blue-500">{{ $comment->user->name }}</a>
                                 <div>{{ $comment->body }}</div>
