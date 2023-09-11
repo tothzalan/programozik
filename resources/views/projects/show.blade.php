@@ -73,19 +73,21 @@
                     {{-- comment section --}}
                     {{-- TODO: add comment by pressing enter --}}
                     @auth
-                        <h2 class="font-bold text-xl">Add comment</h2>
+                        {{-- <h2 class="font-bold text-xl">Add comment</h2> --}}
                         <form method="post" action="{{ route('comments.store') }}">
                             @csrf
-                            <div class="form-group">
-                                <textarea class="form-control " name="body"></textarea>
-                                <input type="hidden" name="project_id" value="{{ $project->id }}">
+                            <div class="grid grid-cols-12 grid-rows-2">
+                                <div class="form-group col-span-12">
+                                    <textarea class="form-control dark:bg-gray-700 w-full" name="body" placeholder="Add comment.."></textarea>
+                                    <input type="hidden" name="project_id" value="{{ $project->id }}">
+                                </div>
+                                <div class="form-group col-start-11 col-end-12">
+                                    <input type="submit"
+                                        class="font-bold bg-blue-400 rounded-full p-3 dark:text-gray-800 dark:bg-blue-300 cursor-pointer ml-2 inline-block align-baseline"
+                                        value="Add Comment" />
+                                    <br>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <input type="submit"
-                                    class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
-                                    value="Add Comment" />
-                            </div><br>
-                            <hr>
                         </form>
                     @else
                         <h2 class="font-bold text-xl text-center">
@@ -95,7 +97,7 @@
 
                     @if (count($project->comments) > 0)
                         @foreach ($project->comments as $comment)
-                            <div class="border text-left p-2">
+                            <div class="border text-left p-2 ">
                                 <a class="font-bold" href="{{ route('user.show', $comment->user->name) }}"
                                     class="text-blue-500">{{ $comment->user->name }}</a>
                                 <div>{{ $comment->body }}</div>
