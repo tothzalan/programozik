@@ -13,7 +13,6 @@ class Project extends Model
 
     protected $fillable = ['name', 'description', 'link'];
 
-<<<<<<< Updated upstream
     public function owner()
     {
         return $this->belongsTo(User::class, 'user_id');
@@ -32,10 +31,5 @@ class Project extends Model
     public function posts()
     {
         return $this->hasMany(Post::class)->orderBy('created_at', 'desc');
-=======
-    public function comments()
-    {
-        return $this->hasMany(Comment::class)->whereNull('parent_id');
->>>>>>> Stashed changes
     }
 }

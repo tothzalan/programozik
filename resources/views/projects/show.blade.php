@@ -67,7 +67,7 @@
                                 {{-- create upvote button --}}
                                 @auth
                                     @if ($post->upvotes->contains('user_id', Auth::user()->id))
-                                        <form method="POST"
+                                        <form class="mb-4" method="POST"
                                             action="{{ route('upvotes.destroy', ['post_id' => $post->id, 'user_id' => Auth::id()]) }}">
                                             @csrf
                                             @method('DELETE')
@@ -77,7 +77,7 @@
                                             </button>
                                         </form>
                                     @else
-                                        <form method="POST" action="{{ route('upvotes.store') }}">
+                                        <form class="mb-4" method="POST" action="{{ route('upvotes.store') }}">
                                             @csrf
                                             <input type="hidden" name="post_id" value="{{ $post->id }}">
                                             <button type="submit" class="mt-6">
