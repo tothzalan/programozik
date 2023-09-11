@@ -99,11 +99,12 @@
                     {{-- TODO: add comment by pressing enter --}}
                     @auth
                         {{-- <h2 class="font-bold text-xl">Add comment</h2> --}}
-                        <form method="post" action="{{ route('comments.store') }}">
+                        <form method="post" action="{{ route('comments.store') }}" id="commentForm">
                             @csrf
+                            <input type="submit" hidden />
                             <div class="grid grid-cols-12 grid-rows-2">
                                 <div class="form-group col-span-12">
-                                    <textarea class="form-control dark:bg-gray-700 w-full" name="body" placeholder="Add comment.."></textarea>
+                                    <textarea id="textarea" class="form-control dark:bg-gray-700 w-full" name="body" placeholder="Add comment.."></textarea>
                                     <input type="hidden" name="project_id" value="{{ $project->id }}">
                                 </div>
                                 <div class="form-group col-start-11 col-end-12">
@@ -132,4 +133,18 @@
                 </div>
             </div>
         </div>
+        <script>
+            const form = document.getElementById('commentForm')
+            function submitOnEnter(event) {
+                console.log('here', event.which)
+                if (event.keyCode === 13) {
+                    if (event.shiftKey) {
+                        return;
+                    }
+                    event.preventDefault();
+                    form.submit();
+                }
+            }
+            document.getElementById("textarea").addEventListener("keydown", submitOnEnter);
+        </script>
 </x-app-layout>
