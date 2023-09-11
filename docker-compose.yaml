@@ -8,8 +8,13 @@ services:
     ports:
       - 5432:5432
     environment:
+<<<<<<< Updated upstream
       POSTGRES_USER: ${DB_USERNAME}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
+=======
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: rootroot
+>>>>>>> Stashed changes
       POSTGRES_DB: programozik
     volumes:
       - postgres-data:/var/lib/postgresql/data
