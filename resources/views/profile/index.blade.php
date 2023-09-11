@@ -31,7 +31,9 @@
                 </div>
                 <div>
                     <h2 class="text-xl font-bold my-4">Contributed:</h2>
-                    {{-- TODO: show joined projects --}}
+                    @foreach ($members as $member)
+                        <a href="{{ route('projects.show', $member->project->id) }}" class="text-blue-600 ml-4">{{ $member->project->name }}</a><br>
+                    @endforeach
                 </div>
             </div>
         </div>
