@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectBrowserController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\PublicProfileController;
+use App\Http\Controllers\UpvoteController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,11 +23,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [ProjectBrowserController::class, 'index']);
 
 Route::controller(PublicProfileController::class)->group(function () {
-   Route::get('users/{name}', 'index')->name('user.show');
+    Route::get('users/{name}', 'index')->name('user.show');
 });
 
 Route::controller(CommentController::class)->group(function () {
     Route::post('/comments', 'store')->name('comments.store');
+});
+
+Route::controller(UpvoteController::class)->group(function () {
+    Route::post('/upvotes', 'store')->name('upvotes.store');
+    Route::delete('/upvotes/{post_id}/{user_id}', 'destroy')->name('upvotes.destroy');
 });
 
 Route::controller(ProjectController::class)->group(function () {
@@ -50,9 +56,10 @@ Route::controller(MembersController::class)->group(function () {
     Route::post('/members/{member}/deny', 'deny')->name('members.deny');
 });
 
-Route::get('/dashboard',
+Route::get(
+    '/dashboard',
     [ProjectBrowserController::class, 'dashboard']
-    )->middleware(['auth', 'verified'])->name('dashboard');
+)->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -60,4 +67,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

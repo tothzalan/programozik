@@ -62,11 +62,35 @@
                         @foreach ($project->posts as $post)
                             <div class="border text-left p-2 mb-4 dark:border-0">
                                 <div class="font-bold">{{ $post->title }}</div>
-                                <div>{{ $post->content }}</div>
+                                <div>{{ $post->content }}</div><br />
+                                <div>{{ count($post->upvotes) }} upvotes</div>
+                                {{-- create upvote button --}}
+                                @auth
+                                    @if ($post->upvotes->contains('user_id', Auth::user()->id))
+                                        <form method="POST"
+                                            action="{{ route('upvotes.destroy', ['post_id' => $post->id, 'user_id' => Auth::id()]) }}">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="mt-6">
+                                                <a class="font-bold bg-red-300 rounded-full p-3 dark:text-gray-800">Remove
+                                                    upvote</a>
+                                            </button>
+                                        </form>
+                                    @else
+                                        <form method="POST" action="{{ route('upvotes.store') }}">
+                                            @csrf
+                                            <input type="hidden" name="post_id" value="{{ $post->id }}">
+                                            <button type="submit" class="mt-6">
+                                                <a
+                                                    class="font-bold bg-green-300 rounded-full p-3 dark:text-gray-800">Upvote</a>
+                                            </button>
+                                        </form>
+                                    @endif
+                                @endauth
                             </div>
                         @endforeach
                     @else
-                        <h2 class="mb-6 mt-1">No posts yet</h2>
+                        <h2 class="mb-6 mt-1">No posts yet.</h2>
                     @endif
                     <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
                     <h2 class="font-bold text-xl mt-2">Comments</h2><br>
