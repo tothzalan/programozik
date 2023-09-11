@@ -63,7 +63,8 @@
                             <div class="border text-left p-2 mb-4 dark:border-0">
                                 <div class="font-bold">{{ $post->title }}</div>
                                 <div>{{ $post->content }}</div><br />
-                                <div>{{ count($post->upvotes) }} upvotes</div>
+                                <div>{{ count($post->upvotes) }} upvote{{ count($post->upvotes) == 1 ? '' : 's' }}
+                                </div>
                                 {{-- create upvote button --}}
                                 @auth
                                     @if ($post->upvotes->contains('user_id', Auth::user()->id))
