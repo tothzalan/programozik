@@ -3,10 +3,10 @@
 </div>
 @isset($value)
     <div class="col-span-4">
-        <textarea id="description" name="description" class="w-full h-32">{{ $value }}</textarea>
+        <textarea id="description" name="description" class="w-full h-32 dark:bg-gray-700">{{ $value }}</textarea>
     </div>
 @else
     <div class="col-span-4">
-        <textarea id="description" name="description" class="w-full h-32" placeholder="What is this project about?"></textarea>
+        <textarea id="description" name="description" class="w-full dark:bg-gray-700" placeholder="What is this project about?"></textarea>
     </div>
 @endisset

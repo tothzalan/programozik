@@ -35,7 +35,7 @@
                             <a class="text-blue-400 dark:text-blue-300" href="/projects/create">Create a new project</a>
                         </div>
                     @else
-                        You don't have any projects yet.
+                        <p class="dark:text-gray-100">You don't have any projects yet.</p>
                         <br>
                         Please create one <a class="text-blue-400" href="/projects/create">here</a>
                     @endif

@@ -22,53 +22,53 @@
                         </div>
 
                         <div>
-                            <button type="submit" class="bg-green-400 rounded-full p-3 m-4 mb-0">
+                            <button type="submit" class="font-bold bg-green-300 rounded-full p-3 dark:text-gray-800 m-4 mb-0">
                                 Save project
                             </button>
                             <button>
-                                <a href="/projects" class="bg-yellow-300 rounded-full p-3 mb-0">Go back</a>
+                                <a href="/projects" class="font-bold bg-yellow-300 rounded-full p-3 dark:text-gray-800 dark:bg-yellow-500 mb-0">Go back</a>
                             </button>
                         </div>
                     </form>
-                    <hr class="mt-2">
-                    <h2 class="font-bold text-xl">Posts</h2>
+                    <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+                    <h2 class="font-bold text-xl dark:text-gray-100 mb-4">Posts</h2>
 
                     <form action="{{ route('projects.posts.add', $project) }}" method="post">
                         @csrf
                         <div class="grid gap-6 grid-cols-5">
-                            <input type="text" name="title" placeholder="Title" class="border p-2 col-span-3"
+                            <input type="text" name="title" placeholder="Title" class="border p-2 col-span-3 dark:bg-gray-700"
                                 value="{{ old('title') }}">
                             <div class="col-span-2"></div>
 
-                            <textarea name="content" placeholder="Content" class="border p-2 col-span-2" cols="30" rows="10">{{ old('content') }}</textarea>
+                            <textarea name="content" placeholder="Content" class="border p-2 col-span-2 dark:bg-gray-700" cols="30" rows="10">{{ old('content') }}</textarea>
                         </div>
 
                         <div>
                             <input type="hidden" name="user_id" value="{{ $project->owner->id }}">
-                            <button type="submit" class="bg-green-400 rounded-full p-3 m-4">
+                            <button type="submit" class="font-bold bg-green-300 rounded-full p-3 dark:text-gray-800 m-4">
                                 Add post
                             </button>
                         </div>
                     </form>
                     @if (count($project->posts) > 0)
                         @foreach ($project->posts as $post)
-                            <div class="border text-left p-2">
-                                <div class="font-bold">{{ $post->title }}</div>
-                                <div>{{ $post->content }}</div>
+                            <div class="border text-left p-2 dark:text-gray-100 dark:border-gray-700">
                                 <form action="{{ route('projects.posts.remove', [$project, $post]) }}"
                                 method="post">
                                 @csrf
                                 @method('DELETE')
                                 {{-- hidden post id --}}
                                 <input type="hidden" name="post_id" value="{{ $post->id }}">
-                                <button class="bg-red-400 rounded-full p-3 m-4 mb-0" type="submit">
+                                <button class="font-bold bg-red-500 rounded-full p-3 dark:text-gray-800 float-right" type="submit">
                                     Delete post
                                 </button>
                             </form>
+                                <div class="font-bold">{{ $post->title }}</div>
+                                <div>{{ $post->content }}</div>
                             </div>
                         @endforeach
                     @else
-                        <h2 class="font-bold text-xl mb-6 mt-1">No posts yet</h2>
+                        <h2 class="font-bold text-xl mb-6 mt-1 dark:text-gray-100">No posts yet</h2>
                     @endif
 
                 </div>

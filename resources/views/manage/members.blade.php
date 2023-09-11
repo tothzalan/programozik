@@ -1,15 +1,15 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight dark:text-gray-100">
             {{ __('Manage members') }}
         </h2>
     </x-slot>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg dark:bg-gray-600">
+                <div class="p-6 text-gray-900  dark:text-gray-100">
                     <div>
-                        <b class="text-xl mb-4">Owner:</b><a href="{{ route('user.show', $owner->name) }}" class="text-blue-600 ml-2">{{ $owner->name }}</a>
+                        <b class="text-xl mb-4">Owner:</b><a href="{{ route('user.show', $owner->name) }}" class="text-blue-600 ml-2 dark:text-blue-300">{{ $owner->name }}</a>
                     </div>
                     <div>
                     <b class="text-xl">Accepted users:</b>
@@ -23,7 +23,7 @@
                                 <div class="col-span-2">
                                     <form method="POST" action="{{ route('members.deny', $member) }}">
                                         @csrf
-                                        <button class="bg-red-500 rounded-full p-2" type="submit">Remove</button>
+                                        <button class="font-bold bg-red-500 rounded-full p-3 dark:text-gray-800 dark:bg-red-500" type="submit">Remove</button>
                                     </form>
                                 </div>
                                 @endif

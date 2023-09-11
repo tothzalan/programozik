@@ -18,10 +18,10 @@
                             @include('projects.partials.form_link')
                         </div>
                         <div>
-                            <button type="submit" value="Create project" class="bg-green-400 rounded-full p-3 m-4 mb-0">
+                            <button type="submit" value="Create project" class="font-bold bg-green-300 rounded-full p-3 dark:text-gray-800 p-3 m-4 mb-0">
                                 Create project
                             </button>
-                            <button class="bg-yellow-300 rounded-full p-3 mb-0">
+                            <button class="font-bold bg-yellow-300 rounded-full p-3 dark:text-gray-800 dark:bg-yellow-500 mb-0">
                                 <a href="/projects">Go back</a>
                             </button>
                         </div>

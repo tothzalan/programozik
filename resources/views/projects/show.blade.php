@@ -60,7 +60,7 @@
                     <h2 class="font-bold text-xl mt-2 mb-2">Posts</h2>
                     @if (count($project->posts) > 0)
                         @foreach ($project->posts as $post)
-                            <div class="border text-left p-2 mb-4 dark:border-0">
+                            <div class="border text-left p-2 pl-0 mb-4 dark:border-0">
                                 <div class="font-bold">{{ $post->title }}</div>
                                 <div>{{ $post->content }}</div><br />
                                 <div class="text-blue-700 dark:text-blue-300">{{ count($post->upvotes) }} upvote{{ count($post->upvotes) == 1 ? '' : 's' }}
