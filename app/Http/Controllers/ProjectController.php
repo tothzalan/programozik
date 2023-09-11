@@ -65,8 +65,8 @@ class ProjectController extends Controller
         if(Auth::check())
         {
             $isOwner = $project->owner == Auth::user();
-            $pending = Member::where('user_id', Auth::user()->id)->exists();
-            $member = Member::where('user_id', Auth::user()->id)->where('valid', true)->exists();
+            $pending = Member::where('user_id', Auth::user()->id)->where('project_id', $project->id)->exists();
+            $member = Member::where('user_id', Auth::user()->id)->where('valid', true)->where('project_id', $project->id)->exists();
             return view('projects.show', [
                 'project' => $project,
                 'owner' => $isOwner,
