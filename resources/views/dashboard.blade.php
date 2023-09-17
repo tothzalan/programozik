@@ -12,11 +12,15 @@
                     @if (count($projects) > 0)
                         @foreach ($projects as $project)
                             <div class="border bg-white mb-4 dark:bg-gray-600 dark:border-black">
-                                <li>
-                                    <p class="font-bold text-xl ml-4 mt-4 dark:text-gray-100"><a href="{{ route('projects.show', $project->id) }}">{{ $project->name }}</a></p>
-                                </li>
+                                <p class="font-bold text-xl ml-4 mt-4 dark:text-gray-100"><a
+                                        href="{{ route('projects.show', $project->id) }}">{{ $project->name }}</a></p>
+                                <p class="text-xs ml-4 mt-0 dark:text-gray-100"><a
+                                        href="{{ route('projects.show', $project->id) }}">{{ substr($project->description, 0, 80) }}{{ strlen($project->description) > 80 ? '...' : '' }}</a>
+                                </p>
+
                                 <p class="mb-4 ml-12 mt-1 dark:text-gray-100">
-                                    by <a href="{{ route('user.show', $project->owner->name)}}" class="text-blue-500 dark:text-blue-300">{{ $project->owner->name }}</a>
+                                    by <a href="{{ route('user.show', $project->owner->name) }}"
+                                        class="text-blue-500 dark:text-blue-300">{{ $project->owner->name }}</a>
                                 </p>
                             </div>
                         @endforeach

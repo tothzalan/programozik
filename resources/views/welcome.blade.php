@@ -47,7 +47,7 @@
                                     href="{{ route('projects.show', $project->id) }}">{{ $project->name }}</a></p>
                         </li>
                         <li>
-                            <p class="text-center"><a class="text-xs dark:text-gray-100"
+                            <p class="text-center text-xs dark:text-gray-100"><a
                                     href="{{ route('projects.show', $project->id) }}">{{ substr($project->description, 0, 80) }}{{ strlen($project->description) > 80 ? '...' : '' }}</a>
                             </p>
                         </li>
