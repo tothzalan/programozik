@@ -61,7 +61,7 @@
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button
-                            class="dark:text-gray-100 dark:bg-slate-800 inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
+                            class="dark:text-gray-100 dark:bg-gray-800 inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
                             <div>{{ Auth::user()->name }}</div>
 
                             <div class="ml-1">
@@ -74,9 +74,8 @@
                             </div>
                         </button>
                     </x-slot>
-
                     <x-slot name="content">
-                        <x-dropdown-link class="dark:text-gray-100 dark:bg-slate-600" :href="route('profile.edit')">
+                        <x-dropdown-link class="dark:hover:bg-gray-700 dark:text-gray-100 dark:bg-slate-600" :href="route('profile.edit')">
                             {{ __('Profile') }}
                         </x-dropdown-link>
 
@@ -84,7 +83,7 @@
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
 
-                            <x-dropdown-link class="dark:text-gray-100 dark:bg-slate-600" :href="route('logout')"
+                            <x-dropdown-link class="dark:hover:bg-gray-700 dark:text-gray-100 dark:bg-slate-600" :href="route('logout')"
                                 onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                                 {{ __('Log Out') }}

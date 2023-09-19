@@ -43,13 +43,13 @@
                             <div class="col-span-1 p-3">
                                 <form method="POST" action="{{ route('members.accept', $member) }}">
                                     @csrf
-                                    <button class="bg-green-300 rounded-full p-2" type="submit">Accept</button>
+                                    <button class="font-bold bg-green-300 rounded-full p-3 dark:text-gray-800" type="submit">Accept</button>
                                 </form>
                             </div>
                             <div class="col-span-1 p-3">
                                 <form method="POST" action="{{ route('members.deny', $member) }}">
                                     @csrf
-                                    <button class="bg-yellow-300 rounded-full p-2">Deny</button>
+                                    <button class="font-bold bg-yellow-300 rounded-full p-3 dark:text-gray-800 dark:bg-yellow-500">Deny</button>
                                 </form>
                             </div>
                             @endif

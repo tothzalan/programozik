@@ -1,10 +1,10 @@
 <section>
     <header>
-        <h2 class="text-lg font-medium text-gray-900">
+        <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
             {{ __('Profile Information') }}
         </h2>
 
-        <p class="mt-1 text-sm text-gray-600">
+        <p class="mt-1 text-sm text-gray-600 dark:text-gray-100">
             {{ __("Update your account's profile information and email address.") }}
         </p>
     </header>
@@ -19,13 +19,13 @@
 
         <div>
             <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
+            <x-text-input id="name" name="name" type="text" class="mt-1 block w-full dark:bg-gray-700" :value="old('name', $user->name)" required autofocus autocomplete="name" />
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
         </div>
 
         <div>
             <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="username" />
+            <x-text-input id="email" name="email" type="email" class="mt-1 block w-full dark:bg-gray-700" :value="old('email', $user->email)" required autocomplete="username" />
             <x-input-error class="mt-2" :messages="$errors->get('email')" />
 
             @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
@@ -49,13 +49,13 @@
 
         <div>
             <x-input-label for="discord" :value="__('Discord')" />
-            <x-text-input id="discord" name="discord" type="discord" class="mt-1 block w-full" :value="old('discord', $user->discord)" required autocomplete="discord" />
+            <x-text-input id="discord" name="discord" type="discord" class="mt-1 block w-full dark:bg-gray-700 border" :value="old('discord', $user->discord)" required autocomplete="discord" />
             <x-input-error class="mt-2" :messages="$errors->get('discord')" />
         </div>
         
         <div>
             <x-input-label for="github" :value="__('GitHub')" />
-            <x-text-input id="github" name="github" type="github" class="mt-1 block w-full" :value="old('giscord', $user->github)" required autocomplete="github" />
+            <x-text-input id="github" name="github" type="github" class="mt-1 block w-full dark:bg-gray-700 border" :value="old('giscord', $user->github)" required autocomplete="github" />
             <x-input-error class="mt-2" :messages="$errors->get('github')" />
         </div>
 
@@ -68,7 +68,7 @@
                     x-show="show"
                     x-transition
                     x-init="setTimeout(() => show = false, 2000)"
-                    class="text-sm text-gray-600"
+                    class="text-sm text-gray-600 dark:text-gray-100"
                 >{{ __('Saved.') }}</p>
             @endif
         </div>
