@@ -49,13 +49,13 @@
 
         <div>
             <x-input-label for="discord" :value="__('Discord')" />
-            <x-text-input id="discord" name="discord" type="discord" class="mt-1 block w-full dark:bg-gray-700 border" :value="old('discord', $user->discord)" required autocomplete="discord" />
+            <x-text-input id="discord" name="discord" type="text" class="mt-1 block w-full dark:bg-gray-700 border" :value="old('discord', $user->discord)" required autocomplete="discord" />
             <x-input-error class="mt-2" :messages="$errors->get('discord')" />
         </div>
-        
+
         <div>
             <x-input-label for="github" :value="__('GitHub')" />
-            <x-text-input id="github" name="github" type="github" class="mt-1 block w-full dark:bg-gray-700 border" :value="old('giscord', $user->github)" required autocomplete="github" />
+            <x-text-input id="github" name="github" type="text" class="mt-1 block w-full dark:bg-gray-700 border" :value="old('github', $user->github)" required autocomplete="github" />
             <x-input-error class="mt-2" :messages="$errors->get('github')" />
         </div>
 
