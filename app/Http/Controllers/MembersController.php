@@ -69,4 +69,12 @@ class MembersController extends Controller
         $member->delete();
         return Redirect::route('members.manage', $member->project_id);
     }
+
+    public function leave(Member $member)
+    {
+        
+        $member->delete();
+        return Redirect::route('dashboard', $member->project_id);
+        
+    }
 }
