@@ -54,6 +54,7 @@ Route::controller(MembersController::class)->group(function () {
     Route::get('/members/{project}/manage', 'manage')->name('members.manage');
     Route::post('/members/{member}/accept', 'accept')->name('members.accept');
     Route::post('/members/{member}/deny', 'deny')->name('members.deny');
+    Route::post('/members/{member}/leave', 'leave')->name('members.leave');
 });
 
 Route::get(
