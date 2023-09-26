@@ -27,12 +27,14 @@
                                     </form>
                                 </div>
                                 @else
-                                <div class="col-span-2">
-                                    <form method="POST" action="{{ route('members.leave', $member) }}">
-                                        @csrf
-                                        <button class="font-bold bg-red-500 rounded-full p-3 dark:text-gray-800 dark:bg-red-500" type="submit">Leave project</button>
-                                    </form>
-                                </div>
+                                    @if(Auth::user()->id == $member->user_id)
+                                    <div class="col-span-2">
+                                        <form method="POST" action="{{ route('members.leave', $member) }}">
+                                            @csrf
+                                            <button class="font-bold bg-red-500 rounded-full p-3 dark:text-gray-800 dark:bg-red-500" type="submit">Leave project</button>
+                                        </form>
+                                    </div>
+                                    @endif
                                 @endif
                             @endif
                         </div>
