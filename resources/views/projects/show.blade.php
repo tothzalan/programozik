@@ -66,10 +66,8 @@
                     <p>This project has no issues yet.</p>
                     @else
                         @foreach($issues as $issue)
-                        {{-- TODO: URL to issue --}}
-                        <p>{{ $issue->name}}</p>
+                        <a href="{{ route('issues.show', $issue->id) }}">{{ $issue->name }}</a>
                         @endforeach
-
                     @endif
                     <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
                     <h2 class="font-bold text-xl mt-2 mb-2">Posts</h2>

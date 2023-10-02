@@ -61,6 +61,7 @@ Route::controller(MembersController::class)->group(function () {
 Route::controller(IssueController::class)->group(function() {
     Route::get('/issues/{project}/create', 'create')->name('issues.create');
     Route::post('/issues/{project}/store', 'store')->name('issues.store');
+    Route::get('/issues/{issue}', 'show')->name('issues.show');
 });
 
 Route::get(
