@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\IssueController;
 use App\Http\Controllers\MembersController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectBrowserController;
@@ -55,6 +56,11 @@ Route::controller(MembersController::class)->group(function () {
     Route::post('/members/{member}/accept', 'accept')->name('members.accept');
     Route::post('/members/{member}/deny', 'deny')->name('members.deny');
     Route::post('/members/{member}/leave', 'leave')->name('members.leave');
+});
+
+Route::controller(IssueController::class)->group(function() {
+    Route::get('/issues/{project}/create', 'create')->name('issues.create');
+    Route::post('/issues/{project}/store', 'store')->name('issues.store');
 });
 
 Route::get(

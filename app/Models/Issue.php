@@ -11,6 +11,8 @@ class Issue extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
     protected $fillable = ['name', 'description', 'price', 'url', 'project_id']; 
 
     public function project(): BelongsTo

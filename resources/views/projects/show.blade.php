@@ -23,6 +23,10 @@
                                             <a class="font-bold bg-green-300 rounded-full p-3 mb-4 dark:text-gray-800"
                                                 href="{{ route('members.manage', $project->id) }}">Manage members</a>
                                         </div>
+                                        <div class="mt-6">
+                                            <a class="font-bold bg-green-300 rounded-full p-3 mb-4 dark:text-gray-800"
+                                                href="{{ route('issues.create', $project->id )}}">Create issue</a>
+                                        </div>
                                     @else
                                         @if (!$pending)
                                             <form method="POST" action="{{ route('projects.join', $project->id) }}">
@@ -56,6 +60,17 @@
                             </div>
                         </div>
                     @endauth
+                    <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+                    <h2 class="font-bold text-xl mt-2 mb-2">Issues</h2>
+                    @if(count($issues) === 0)
+                    <p>This project has no issues yet.</p>
+                    @else
+                        @foreach($issues as $issue)
+                        {{-- TODO: URL to issue --}}
+                        <p>{{ $issue->name}}</p>
+                        @endforeach
+
+                    @endif
                     <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
                     <h2 class="font-bold text-xl mt-2 mb-2">Posts</h2>
                     @if (count($project->posts) > 0)

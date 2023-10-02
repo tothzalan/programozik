@@ -62,6 +62,8 @@ class ProjectController extends Controller
     {
         $project->description = $this->markdownConverter->convertToHtml($project->description);
 
+        $issues = $project->issues()->get();
+
         if(Auth::check())
         {
             $isOwner = $project->owner == Auth::user();
@@ -72,12 +74,14 @@ class ProjectController extends Controller
                 'owner' => $isOwner,
                 'pending' => !$isOwner &&  $pending,
                 'member' => $member,
+                'issues' => $issues,
             ]);
         }
 
 
         return view('projects.show', [
             'project' => $project,
+            'issues' => $issues,
         ]);
     }
 
