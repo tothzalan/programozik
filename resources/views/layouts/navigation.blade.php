@@ -4,7 +4,7 @@
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
-                <div class="shrink-0 flex items-center">
+                <div class="shrink-0 flex items-center" style="width: 20%">
                     <a href="{{ route('dashboard') }}">
                         <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-100" />
                     </a>
@@ -75,7 +75,8 @@
                         </button>
                     </x-slot>
                     <x-slot name="content">
-                        <x-dropdown-link class="dark:hover:bg-gray-700 dark:text-gray-100 dark:bg-slate-600" :href="route('profile.edit')">
+                        <x-dropdown-link class="dark:hover:bg-gray-700 dark:text-gray-100 dark:bg-slate-600"
+                            :href="route('profile.edit')">
                             {{ __('Profile') }}
                         </x-dropdown-link>
 
@@ -83,7 +84,8 @@
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
 
-                            <x-dropdown-link class="dark:hover:bg-gray-700 dark:text-gray-100 dark:bg-slate-600" :href="route('logout')"
+                            <x-dropdown-link class="dark:hover:bg-gray-700 dark:text-gray-100 dark:bg-slate-600"
+                                :href="route('logout')"
                                 onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                                 {{ __('Log Out') }}
