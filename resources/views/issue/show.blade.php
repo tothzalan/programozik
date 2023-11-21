@@ -15,7 +15,11 @@
                 </div>
                 <div>
                     <button class="font-bold bg-yellow-300 rounded-full p-3 dark:text-gray-800 dark:bg-yellow-500 m-4">
-                        <a href="/projects">Go back</a>
+                        @auth
+                            <a href="/projects">Go back</a>
+                        @else
+                            <a href="/">Go back</a>
+                        @endauth
                     </button>
                 </div>
             </div>
