@@ -67,6 +67,7 @@
                     @else
                         @foreach($issues as $issue)
                         <a href="{{ route('issues.show', $issue->id) }}">{{ $issue->name }}</a>
+                        <a class="text-right font-bold pl-10" href="{{ route('issues.show', $issue->id) }}">{{ $issue->price }}$</a><br>
                         @endforeach
                     @endif
                     <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
